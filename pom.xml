@@ -99,7 +99,6 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
-		<final
 	</build>
 
 </project>
