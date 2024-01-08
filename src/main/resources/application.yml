@@ -1,0 +1,47 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${MYSQL_HOST:localhost}${MYSQL_PORT}:3306/JobApplicationProject
+    username: ${MYSQL_USER:root}
+    password: ${MYSQL_PASSWORD:harshini@321}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+  security:
+    user:
+      name: harshini
+      password: hari123
+    admin:
+      name: admin
+      password: admin123
+server:
+  servlet:
+    contextPath: /org/v1
+---
+spring:
+  config:
+   active:
+     on-profile: dev
+  datasource:
+    url: jdbc:mysql://localhost:3306/devJobApplicationProject
+    username: root
+    password: harshini@321
+
+---
+spring:
+  config:
+    active:
+      on-profile: qa
+  datasource:
+    url: jdbc:mysql://localhost:3306/qaJobApplicationProject
+    username: root
+    password: harshini@321
+---
+spring:
+  profiles:
+    active: "dev"
+server:
+  port: 8085
